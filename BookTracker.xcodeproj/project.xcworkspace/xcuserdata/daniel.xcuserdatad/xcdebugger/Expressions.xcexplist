@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Book.(init(name : String, isbn : String?, pgNr : Int?, pic : UIImage?, notes : [Note]?) -&gt; Book?).(closure #1).(closure #1):Book.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "notebook.name == &quot;notetakr&quot;">
+            </PersistentString>
+            <PersistentString
+               value = "notebook.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Book.(init(name : String, isbn : String?, pgNr : Int?, pic : UIImage?, notes : [Note]?) -&gt; Book?).(closure #1).(closure #2):Book.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "String(note.title)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Book.(init(name : String, isbn : String?, pgNr : Int?, pic : UIImage?, notes : [Note]?) -&gt; Book?).(closure #1):Book.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "notebook.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BookTableViewController.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:BookTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "books!.count()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

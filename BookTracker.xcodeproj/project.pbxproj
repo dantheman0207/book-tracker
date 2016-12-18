@@ -7,12 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		653424691DB907B100B04E51 /* Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653424681DB907B100B04E51 /* Metadata.swift */; };
+		6534246E1DB91D6700B04E51 /* ENSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A4F0C71D9E7C3A00BB6680 /* ENSDK.framework */; };
+		65A4F0CA1D9E7C3A00BB6680 /* ENSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 65A4F0C81D9E7C3A00BB6680 /* ENSDKResources.bundle */; };
 		65A519921D9969700009A84A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A519911D9969700009A84A /* AppDelegate.swift */; };
 		65A519941D9969700009A84A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A519931D9969700009A84A /* ViewController.swift */; };
 		65A519971D9969700009A84A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A519951D9969700009A84A /* Main.storyboard */; };
 		65A519991D9969700009A84A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65A519981D9969700009A84A /* Assets.xcassets */; };
 		65A5199C1D9969700009A84A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A5199A1D9969700009A84A /* LaunchScreen.storyboard */; };
 		65A519A71D9969700009A84A /* BookTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A519A61D9969700009A84A /* BookTrackerTests.swift */; };
+		65AD81381D9B045F004E1A26 /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD81371D9B045F004E1A26 /* NoteTableViewController.swift */; };
+		65AD813A1D9B0502004E1A26 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD81391D9B0502004E1A26 /* NoteTableViewCell.swift */; };
+		65AD813C1D9B0FB6004E1A26 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD813B1D9B0FB6004E1A26 /* Note.swift */; };
+		65AD813E1D9B18FD004E1A26 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD813D1D9B18FD004E1A26 /* NoteViewController.swift */; };
+		65D9F6C11DA28C84004E3957 /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D9F6C01DA28C84004E3957 /* Books.swift */; };
+		65D9F6C31DA29B86004E3957 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D9F6C21DA29B86004E3957 /* Notes.swift */; };
+		65E3A5BF1D99859800A1B8F9 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E3A5BE1D99859800A1B8F9 /* BookTableViewController.swift */; };
+		65E3A5C11D99862D00A1B8F9 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E3A5C01D99862D00A1B8F9 /* BookTableViewCell.swift */; };
+		65E3A5C31D9986BD00A1B8F9 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E3A5C21D9986BD00A1B8F9 /* Book.swift */; };
+		65E3A5C51D998D4300A1B8F9 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E3A5C41D998D4300A1B8F9 /* BookViewController.swift */; };
+		65ED69811D9E71550047A6AD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65ED69801D9E71550047A6AD /* MobileCoreServices.framework */; };
+		65ED69831D9E71C20047A6AD /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65ED69821D9E71C20047A6AD /* libxml2.2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		653424681DB907B100B04E51 /* Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metadata.swift; sourceTree = "<group>"; };
+		65A4F0C71D9E7C3A00BB6680 /* ENSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ENSDK.framework; sourceTree = "<group>"; };
+		65A4F0C81D9E7C3A00BB6680 /* ENSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ENSDKResources.bundle; sourceTree = "<group>"; };
+		65A4F0CB1D9E7C5800BB6680 /* evernote_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evernote_bridge.h; sourceTree = "<group>"; };
 		65A5198E1D9969700009A84A /* BookTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A519911D9969700009A84A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65A519931D9969700009A84A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +55,18 @@
 		65A519A21D9969700009A84A /* BookTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A519A61D9969700009A84A /* BookTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTrackerTests.swift; sourceTree = "<group>"; };
 		65A519A81D9969700009A84A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65AD81371D9B045F004E1A26 /* NoteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
+		65AD81391D9B0502004E1A26 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		65AD813B1D9B0FB6004E1A26 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		65AD813D1D9B18FD004E1A26 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		65D9F6C01DA28C84004E3957 /* Books.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
+		65D9F6C21DA29B86004E3957 /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
+		65E3A5BE1D99859800A1B8F9 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
+		65E3A5C01D99862D00A1B8F9 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		65E3A5C21D9986BD00A1B8F9 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		65E3A5C41D998D4300A1B8F9 /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		65ED69801D9E71550047A6AD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		65ED69821D9E71C20047A6AD /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = ../../../../usr/lib/libxml2.2.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +74,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6534246E1DB91D6700B04E51 /* ENSDK.framework in Frameworks */,
+				65ED69831D9E71C20047A6AD /* libxml2.2.dylib in Frameworks */,
+				65ED69811D9E71550047A6AD /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +90,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4246B4CD5E3F9F079C0F1E94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65A4F0C71D9E7C3A00BB6680 /* ENSDK.framework */,
+				65A4F0C81D9E7C3A00BB6680 /* ENSDKResources.bundle */,
+				65ED69821D9E71C20047A6AD /* libxml2.2.dylib */,
+				65ED69801D9E71550047A6AD /* MobileCoreServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		65A519851D9969700009A84A = {
 			isa = PBXGroup;
 			children = (
 				65A519901D9969700009A84A /* BookTracker */,
 				65A519A51D9969700009A84A /* BookTrackerTests */,
 				65A5198F1D9969700009A84A /* Products */,
+				4246B4CD5E3F9F079C0F1E94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,9 +126,21 @@
 				65A519911D9969700009A84A /* AppDelegate.swift */,
 				65A519931D9969700009A84A /* ViewController.swift */,
 				65A519951D9969700009A84A /* Main.storyboard */,
+				65AD813D1D9B18FD004E1A26 /* NoteViewController.swift */,
+				65AD81391D9B0502004E1A26 /* NoteTableViewCell.swift */,
+				65AD81371D9B045F004E1A26 /* NoteTableViewController.swift */,
+				65AD813B1D9B0FB6004E1A26 /* Note.swift */,
+				65D9F6C21DA29B86004E3957 /* Notes.swift */,
+				65E3A5C41D998D4300A1B8F9 /* BookViewController.swift */,
+				65E3A5C21D9986BD00A1B8F9 /* Book.swift */,
+				653424681DB907B100B04E51 /* Metadata.swift */,
+				65D9F6C01DA28C84004E3957 /* Books.swift */,
+				65E3A5C01D99862D00A1B8F9 /* BookTableViewCell.swift */,
+				65E3A5BE1D99859800A1B8F9 /* BookTableViewController.swift */,
 				65A519981D9969700009A84A /* Assets.xcassets */,
 				65A5199A1D9969700009A84A /* LaunchScreen.storyboard */,
 				65A5199D1D9969700009A84A /* Info.plist */,
+				65A4F0CB1D9E7C5800BB6680 /* evernote_bridge.h */,
 			);
 			path = BookTracker;
 			sourceTree = "<group>";
@@ -146,6 +204,7 @@
 				TargetAttributes = {
 					65A5198D1D9969700009A84A = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = FSHT32R3AS;
 						ProvisioningStyle = Automatic;
 					};
 					65A519A11D9969700009A84A = {
@@ -180,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65A5199C1D9969700009A84A /* LaunchScreen.storyboard in Resources */,
+				65A4F0CA1D9E7C3A00BB6680 /* ENSDKResources.bundle in Resources */,
 				65A519991D9969700009A84A /* Assets.xcassets in Resources */,
 				65A519971D9969700009A84A /* Main.storyboard in Resources */,
 			);
@@ -199,8 +259,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65AD81381D9B045F004E1A26 /* NoteTableViewController.swift in Sources */,
+				65E3A5C11D99862D00A1B8F9 /* BookTableViewCell.swift in Sources */,
 				65A519941D9969700009A84A /* ViewController.swift in Sources */,
+				65D9F6C11DA28C84004E3957 /* Books.swift in Sources */,
+				65AD813A1D9B0502004E1A26 /* NoteTableViewCell.swift in Sources */,
+				65E3A5BF1D99859800A1B8F9 /* BookTableViewController.swift in Sources */,
+				65AD813C1D9B0FB6004E1A26 /* Note.swift in Sources */,
+				653424691DB907B100B04E51 /* Metadata.swift in Sources */,
+				65E3A5C51D998D4300A1B8F9 /* BookViewController.swift in Sources */,
+				65E3A5C31D9986BD00A1B8F9 /* Book.swift in Sources */,
+				65AD813E1D9B18FD004E1A26 /* NoteViewController.swift in Sources */,
 				65A519921D9969700009A84A /* AppDelegate.swift in Sources */,
+				65D9F6C31DA29B86004E3957 /* Notes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +334,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -282,11 +354,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${PROJECT_DIR}/ENSDK.framework/Headers";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -313,6 +389,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -326,9 +403,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${PROJECT_DIR}/ENSDK.framework/Headers";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -339,10 +420,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FSHT32R3AS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BookTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ransom.BookTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = BookTracker/evernote_bridge.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -351,10 +439,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FSHT32R3AS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BookTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ransom.BookTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = BookTracker/evernote_bridge.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -406,6 +501,7 @@
 				65A519AD1D9969700009A84A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65A519AE1D9969700009A84A /* Build configuration list for PBXNativeTarget "BookTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +510,7 @@
 				65A519B01D9969700009A84A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
