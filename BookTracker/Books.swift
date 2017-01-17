@@ -12,10 +12,12 @@ class Books: NSObject {
     // MARK: Properties
     var books =  [Book]()
     var reqProtocolDelegate: requestListenerProtocol
+    var user: Int?
     
-    init(reqProtocolDelegate: requestListenerProtocol) {
+    init(user: Int, reqProtocolDelegate: requestListenerProtocol) {
         // change so protocolDelegate is set after init ???
         self.reqProtocolDelegate = reqProtocolDelegate
+        self.user = user
         super.init()
 
         if ENSession.shared().isAuthenticated {
