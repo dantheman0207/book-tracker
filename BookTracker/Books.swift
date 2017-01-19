@@ -44,7 +44,7 @@ class Books: NSObject {
             (data, response, error) in
             // check for any errors
             guard error == nil else {
-                print("error calling GET on /todos/1")
+                print("error calling GET on /book/")
                 print(error!)
                 return
             }
@@ -54,25 +54,12 @@ class Books: NSObject {
                 return
             }
             // parse the result as JSON, since that's what the API provides
-            do {
-                guard let books = try JSONSerialization.jsonObject(with: responseData, options: []) as? [[String: Any]] else {
-                    print("error trying to convert data to JSON")
-                    return
-                }
-                
-                if let firstBook = books[0]["id"] as? String {
-                    print("the first book's id: " + firstBook)
-                }
-                else {
-                    print("error getting id of first book")
-                }
-                
-                // now we have the todo, let's just print it to prove we can access it
-                print("The todo is: " + String(describing: books))
-                
-            } catch  {
-                print("error trying to convert data to JSON")
-                return
+            let json = JSON(data: responseData)
+            
+            for (index,subJson):(String, JSON) in json {
+                //Do something you want
+                print(index + " parsed book:")
+                print(subJson)
             }
         }
         
