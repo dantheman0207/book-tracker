@@ -20,7 +20,7 @@ class BookTableViewController: UITableViewController, requestListenerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.books = Books(reqProtocolDelegate: self)
+        self.books = Books(user: 1, reqProtocolDelegate: self)
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
@@ -33,13 +33,13 @@ class BookTableViewController: UITableViewController, requestListenerProtocol {
 
     // MARK: Testing data
     func loadSampleBook() {
-        let book = Book(name: "Zen and the Art of Motorcycle Maintenance", isbn: nil, pic: UIImage(named: "defaultPhoto"))!
+        let book = Book(name: "Zen and the Art of Motorcycle Maintenance", isbn: "1300000000000", existingNotes: nil)!
         self.books!.add(book: book)
     }
     
     func loadSampleNotes() -> Notes {
         // create Notes object
-        let notes = Notes(nil)
+        let notes = Notes()
         notes.createNote(title: "pg. 57-59", content: "Opening lines of note, showing the first bit...", images: nil)
         return notes
     }

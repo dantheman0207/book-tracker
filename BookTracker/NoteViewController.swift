@@ -73,7 +73,7 @@ class NoteViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
             let title = fromPage.text!
             let content = noteContent.text!
             
-            note = Note(title: title, content: content, everNote: nil)
+            note = Note(title: title, content: content)
         }
     }
 

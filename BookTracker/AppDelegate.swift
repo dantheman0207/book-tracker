@@ -17,10 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let devToken = "S=s20:U=20d38c:E=15ed22a5397:C=1577a792430:P=1cd:A=en-devtoken:V=2:H=250a3ffa5e7a63e2d6444c8f996515ad"
-        let noteStoreUrl = "https://www.evernote.com/shard/s20/notestore"
-        ENSession.setSharedSessionDeveloperToken(devToken, noteStoreUrl: noteStoreUrl)
-        
         return true
     }
 
@@ -48,8 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // pass through open URL requests (from Evernote 'getting started' guide)
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return ENSession.shared().handleOpen(url)
-
+        //return ENSession.shared().handleOpen(url)
+        return false
     }
 
 }

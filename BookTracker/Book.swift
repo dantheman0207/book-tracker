@@ -10,63 +10,22 @@ import UIKit
 
 class Book: NSObject {
     // MARK: Properties
-    //var title: String
     var displayName: String
     var isbn: String?
     var photo: UIImage?
-    var notes: Notes
-    var notebook: ENNotebook
-    
-    // MARK: Initialization
-//    convenience init?(name: String, isbn: String?, pic: UIImage?) {
-//        
-//        let prefix = "notetakr-"
-//        // garbage
-//        let notebook = ENNotebook()
-//        let noteStore = ENSession.shared().primaryNoteStore()!
-//        // noteStore.createNotebook
-//            
-//        
-//        // Todo: Create notebook
-//        
-//        // with name: name
-//        
-//        // TODO: create & store notebook using passed arguments
-//        
-//        
-//        if name.isEmpty {
-//            return nil //fail out
-//        }
-//        
-//        // @TODO create notebook on evernote if no notes
-//        
-//        // call designated initializer
-//        self.init(notebook: notebook)
-//
-//    }
-//    
-    init?(notebook: ENNotebook) {
-        
-        // local var holds magic string
-        let prefix = "notetakr-"
-        
-        // load display name
-        let endPrefix = notebook.name.index(after: prefix.endIndex)
-        let cleanName = notebook.name.substring(from: endPrefix)
-        
-        // load isbn/pic from 'metadata' note
-        // @TODO
+    var notes: Notes?
+ 
+    init?(name: String, isbn: String, existingNotes: Notes?) {
         
         // Set props
-        self.displayName = cleanName
-        self.notes = notesForMe
-        self.notebook = notebook
+        self.displayName = name
+        if let notes = existingNotes {
+            self.notes = notes
+        } else {
+            self.notes = Notes()
+        }
 
         super.init()
-        
-        // load notes
-        let notesForMe = Notes(book: self)
-        
     }
     
     func valid(isbn: String) -> Bool {

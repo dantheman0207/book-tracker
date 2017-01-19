@@ -10,6 +10,7 @@ import UIKit
 
 class Books: NSObject {
     // MARK: Properties
+    var booksEndpoint: String = "https://readr-api.herokuapp.com/api/user/"
     var books =  [Book]()
     var reqProtocolDelegate: requestListenerProtocol
     var user: Int?
@@ -17,46 +18,64 @@ class Books: NSObject {
     init(user: Int, reqProtocolDelegate: requestListenerProtocol) {
         // change so protocolDelegate is set after init ???
         self.reqProtocolDelegate = reqProtocolDelegate
+        self.booksEndpoint += String(user) + "/book/"
         self.user = user
-        super.init()
 
-        if ENSession.shared().isAuthenticated {
-            load() {
-                // notify protocol delegates
-                self.reqProtocolDelegate.requestCompleted()
-                // for book in books { book.notifyProtocolDelegates() }
-            }
-        }
-    }
-    
-    func load(closure: @escaping () -> Void ) {
-        // @TODO: change to load all notes
-        // @TODO:  then for each note in notes, processNote(note)
+        super.init()
         
-        // Load all Evernote notebooks w/ 'notetakr-' prefix
-        ENSession.shared().listNotebooks() {
-            if let error = $0.1 {
-                print("Error fetching Evernote notebooks....\n" + error.localizedDescription)
-            } else if var notebooks = $0.0 {
-                notebooks = notebooks.filter({ (i) -> Bool in
-                    let notebook = i as! ENNotebook
-                    return notebook.name.hasPrefix("notetakr-")
-                })
-                
-                for i in notebooks {
-                    let notebook = i as! ENNotebook
-                    let book = Book(notebook: notebook)!
-                    self.books.append(book)
-                }
-                closure()
-            }
-        }
+        self.getFromAPI()
+
     }
     
-    func processNote(noteRef: ENNoteRef) {
-        // @TODO: download note
-        // @TODO: if book not already in Books create
-        // @TODO: book.addNote(downloaded note)
+    func getFromAPI() {
+        guard let url = URL(string: self.booksEndpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        let urlRequest = URLRequest(url: url)
+        // set up the session
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        
+        // make the request
+        let task = session.dataTask(with: urlRequest) {
+            (data, response, error) in
+            // check for any errors
+            guard error == nil else {
+                print("error calling GET on /todos/1")
+                print(error!)
+                return
+            }
+            // make sure we got data
+            guard let responseData = data else {
+                print("Error: did not receive data")
+                return
+            }
+            // parse the result as JSON, since that's what the API provides
+            do {
+                guard let books = try JSONSerialization.jsonObject(with: responseData, options: []) as? [[String: Any]] else {
+                    print("error trying to convert data to JSON")
+                    return
+                }
+                
+                if let firstBook = books[0]["id"] as? String {
+                    print("the first book's id: " + firstBook)
+                }
+                else {
+                    print("error getting id of first book")
+                }
+                
+                // now we have the todo, let's just print it to prove we can access it
+                print("The todo is: " + String(describing: books))
+                
+            } catch  {
+                print("error trying to convert data to JSON")
+                return
+            }
+        }
+        
+        task.resume()
     }
     
     func count() -> Int {

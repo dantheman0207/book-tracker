@@ -98,9 +98,8 @@ class BookViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         if saveButton == sender as? UIBarButtonItem {
             let bookName = bookTitle.text!
             let nr = isbn.text
-            let photo = photoView.image
             
-            book = Book(name: bookName, isbn: nr, pic: photo)
+            book = Book(name: bookName, isbn: nr!, existingNotes: nil)
         }
         
         

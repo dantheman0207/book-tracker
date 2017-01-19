@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		653424691DB907B100B04E51 /* Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653424681DB907B100B04E51 /* Metadata.swift */; };
-		6534246E1DB91D6700B04E51 /* ENSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A4F0C71D9E7C3A00BB6680 /* ENSDK.framework */; };
-		65A4F0CA1D9E7C3A00BB6680 /* ENSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 65A4F0C81D9E7C3A00BB6680 /* ENSDKResources.bundle */; };
 		65A519921D9969700009A84A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A519911D9969700009A84A /* AppDelegate.swift */; };
 		65A519941D9969700009A84A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A519931D9969700009A84A /* ViewController.swift */; };
 		65A519971D9969700009A84A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A519951D9969700009A84A /* Main.storyboard */; };
@@ -41,10 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		653424681DB907B100B04E51 /* Metadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metadata.swift; sourceTree = "<group>"; };
-		65A4F0C71D9E7C3A00BB6680 /* ENSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ENSDK.framework; sourceTree = "<group>"; };
-		65A4F0C81D9E7C3A00BB6680 /* ENSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ENSDKResources.bundle; sourceTree = "<group>"; };
-		65A4F0CB1D9E7C5800BB6680 /* evernote_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evernote_bridge.h; sourceTree = "<group>"; };
 		65A5198E1D9969700009A84A /* BookTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A519911D9969700009A84A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65A519931D9969700009A84A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +67,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6534246E1DB91D6700B04E51 /* ENSDK.framework in Frameworks */,
 				65ED69831D9E71C20047A6AD /* libxml2.2.dylib in Frameworks */,
 				65ED69811D9E71550047A6AD /* MobileCoreServices.framework in Frameworks */,
 			);
@@ -93,8 +85,6 @@
 		4246B4CD5E3F9F079C0F1E94 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				65A4F0C71D9E7C3A00BB6680 /* ENSDK.framework */,
-				65A4F0C81D9E7C3A00BB6680 /* ENSDKResources.bundle */,
 				65ED69821D9E71C20047A6AD /* libxml2.2.dylib */,
 				65ED69801D9E71550047A6AD /* MobileCoreServices.framework */,
 			);
@@ -133,14 +123,12 @@
 				65D9F6C21DA29B86004E3957 /* Notes.swift */,
 				65E3A5C41D998D4300A1B8F9 /* BookViewController.swift */,
 				65E3A5C21D9986BD00A1B8F9 /* Book.swift */,
-				653424681DB907B100B04E51 /* Metadata.swift */,
 				65D9F6C01DA28C84004E3957 /* Books.swift */,
 				65E3A5C01D99862D00A1B8F9 /* BookTableViewCell.swift */,
 				65E3A5BE1D99859800A1B8F9 /* BookTableViewController.swift */,
 				65A519981D9969700009A84A /* Assets.xcassets */,
 				65A5199A1D9969700009A84A /* LaunchScreen.storyboard */,
 				65A5199D1D9969700009A84A /* Info.plist */,
-				65A4F0CB1D9E7C5800BB6680 /* evernote_bridge.h */,
 			);
 			path = BookTracker;
 			sourceTree = "<group>";
@@ -199,7 +187,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Daniel Ransom";
 				TargetAttributes = {
 					65A5198D1D9969700009A84A = {
@@ -239,7 +227,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				65A5199C1D9969700009A84A /* LaunchScreen.storyboard in Resources */,
-				65A4F0CA1D9E7C3A00BB6680 /* ENSDKResources.bundle in Resources */,
 				65A519991D9969700009A84A /* Assets.xcassets in Resources */,
 				65A519971D9969700009A84A /* Main.storyboard in Resources */,
 			);
@@ -266,7 +253,6 @@
 				65AD813A1D9B0502004E1A26 /* NoteTableViewCell.swift in Sources */,
 				65E3A5BF1D99859800A1B8F9 /* BookTableViewController.swift in Sources */,
 				65AD813C1D9B0FB6004E1A26 /* Note.swift in Sources */,
-				653424691DB907B100B04E51 /* Metadata.swift in Sources */,
 				65E3A5C51D998D4300A1B8F9 /* BookViewController.swift in Sources */,
 				65E3A5C31D9986BD00A1B8F9 /* Book.swift in Sources */,
 				65AD813E1D9B18FD004E1A26 /* NoteViewController.swift in Sources */,
@@ -331,6 +317,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -386,6 +373,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -429,8 +417,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ransom.BookTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = BookTracker/evernote_bridge.h;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -448,8 +435,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ransom.BookTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = BookTracker/evernote_bridge.h;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
