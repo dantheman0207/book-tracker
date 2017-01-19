@@ -18,6 +18,7 @@
 		65AD813A1D9B0502004E1A26 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD81391D9B0502004E1A26 /* NoteTableViewCell.swift */; };
 		65AD813C1D9B0FB6004E1A26 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD813B1D9B0FB6004E1A26 /* Note.swift */; };
 		65AD813E1D9B18FD004E1A26 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AD813D1D9B18FD004E1A26 /* NoteViewController.swift */; };
+		65D56FA61E3110310086A0C2 /* AbstractRestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D56FA51E3110310086A0C2 /* AbstractRestAPI.swift */; };
 		65D9F6C11DA28C84004E3957 /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D9F6C01DA28C84004E3957 /* Books.swift */; };
 		65D9F6C31DA29B86004E3957 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D9F6C21DA29B86004E3957 /* Notes.swift */; };
 		65E3A5BF1D99859800A1B8F9 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E3A5BE1D99859800A1B8F9 /* BookTableViewController.swift */; };
@@ -54,6 +55,7 @@
 		65AD81391D9B0502004E1A26 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		65AD813B1D9B0FB6004E1A26 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		65AD813D1D9B18FD004E1A26 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		65D56FA51E3110310086A0C2 /* AbstractRestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractRestAPI.swift; sourceTree = "<group>"; };
 		65D9F6C01DA28C84004E3957 /* Books.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
 		65D9F6C21DA29B86004E3957 /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		65E3A5BE1D99859800A1B8F9 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				65A519981D9969700009A84A /* Assets.xcassets */,
 				65A5199A1D9969700009A84A /* LaunchScreen.storyboard */,
 				65A5199D1D9969700009A84A /* Info.plist */,
+				65D56FA51E3110310086A0C2 /* AbstractRestAPI.swift */,
 			);
 			path = BookTracker;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				65E3A5BF1D99859800A1B8F9 /* BookTableViewController.swift in Sources */,
 				65AD813C1D9B0FB6004E1A26 /* Note.swift in Sources */,
 				65E3A5C51D998D4300A1B8F9 /* BookViewController.swift in Sources */,
+				65D56FA61E3110310086A0C2 /* AbstractRestAPI.swift in Sources */,
 				65E3A5C31D9986BD00A1B8F9 /* Book.swift in Sources */,
 				65AD813E1D9B18FD004E1A26 /* NoteViewController.swift in Sources */,
 				65A519921D9969700009A84A /* AppDelegate.swift in Sources */,
