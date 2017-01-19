@@ -1,12 +1,12 @@
 PODS:
-  - evernote-cloud-sdk-ios (2.0.5)
+  - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
-  - evernote-cloud-sdk-ios
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
-  evernote-cloud-sdk-ios: 048cf5dcdc0c64069192d1336b7e121bc1a77e12
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: 7e064fdd3ebfe10043179152a593a4c6ec1d3ad7
+PODFILE CHECKSUM: 685f73eb4c478f7a44c3ad5ae40f3e178fc72e63
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

@@ -1,4 +1,4 @@
 use_frameworks!
 target ‘BookTracker’ do
-	pod ‘evernote-cloud-sdk-ios’
+	pod ‘SwiftyJSON’
 end

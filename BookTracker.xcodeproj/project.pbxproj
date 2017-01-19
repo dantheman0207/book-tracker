@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35047034696CA076B5C29F0E /* Pods_BookTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8822A42A99A53F093CC8194D /* Pods_BookTracker.framework */; };
 		65A519921D9969700009A84A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A519911D9969700009A84A /* AppDelegate.swift */; };
 		65A519941D9969700009A84A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A519931D9969700009A84A /* ViewController.swift */; };
 		65A519971D9969700009A84A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A519951D9969700009A84A /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0823EC45A26D8ED4529334ED /* Pods-BookTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookTracker/Pods-BookTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		65A5198E1D9969700009A84A /* BookTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A519911D9969700009A84A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65A519931D9969700009A84A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,8 @@
 		65E3A5C41D998D4300A1B8F9 /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		65ED69801D9E71550047A6AD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		65ED69821D9E71C20047A6AD /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = ../../../../usr/lib/libxml2.2.dylib; sourceTree = "<group>"; };
+		8822A42A99A53F093CC8194D /* Pods_BookTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F55E1AC40AEF11FA6E6A9CCF /* Pods-BookTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookTracker/Pods-BookTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 			files = (
 				65ED69831D9E71C20047A6AD /* libxml2.2.dylib in Frameworks */,
 				65ED69811D9E71550047A6AD /* MobileCoreServices.framework in Frameworks */,
+				35047034696CA076B5C29F0E /* Pods_BookTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,11 +87,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16BB098F862D48F0670EC1A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0823EC45A26D8ED4529334ED /* Pods-BookTracker.debug.xcconfig */,
+				F55E1AC40AEF11FA6E6A9CCF /* Pods-BookTracker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4246B4CD5E3F9F079C0F1E94 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				65ED69821D9E71C20047A6AD /* libxml2.2.dylib */,
 				65ED69801D9E71550047A6AD /* MobileCoreServices.framework */,
+				8822A42A99A53F093CC8194D /* Pods_BookTracker.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -98,6 +113,7 @@
 				65A519A51D9969700009A84A /* BookTrackerTests */,
 				65A5198F1D9969700009A84A /* Products */,
 				4246B4CD5E3F9F079C0F1E94 /* Frameworks */,
+				16BB098F862D48F0670EC1A4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,9 +165,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65A519AB1D9969700009A84A /* Build configuration list for PBXNativeTarget "BookTracker" */;
 			buildPhases = (
+				A0E595C58BAAAD57FC65FFDC /* [CP] Check Pods Manifest.lock */,
 				65A5198A1D9969700009A84A /* Sources */,
 				65A5198B1D9969700009A84A /* Frameworks */,
 				65A5198C1D9969700009A84A /* Resources */,
+				9FD1A9B947D363E1152A4FBF /* [CP] Embed Pods Frameworks */,
+				E31C665EA2202EEB935CF58E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -240,6 +259,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9FD1A9B947D363E1152A4FBF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BookTracker/Pods-BookTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0E595C58BAAAD57FC65FFDC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E31C665EA2202EEB935CF58E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BookTracker/Pods-BookTracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		65A5198A1D9969700009A84A /* Sources */ = {
@@ -406,6 +473,7 @@
 		};
 		65A519AC1D9969700009A84A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0823EC45A26D8ED4529334ED /* Pods-BookTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FSHT32R3AS;
@@ -424,6 +492,7 @@
 		};
 		65A519AD1D9969700009A84A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F55E1AC40AEF11FA6E6A9CCF /* Pods-BookTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FSHT32R3AS;
