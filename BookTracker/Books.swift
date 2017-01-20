@@ -9,9 +9,9 @@
 import UIKit
 import SwiftyJSON
 
-class Books: NSObject {
+class Books: API {
     // MARK: Properties
-    var booksEndpoint: String = "https://readr-api.herokuapp.com/api/user/"
+    var booksEndpoint: String = "/user/"
     var books =  [Book]()
     var reqProtocolDelegate: requestListenerProtocol
     var user: Int?
@@ -22,48 +22,45 @@ class Books: NSObject {
         self.booksEndpoint += String(user) + "/book/"
         self.user = user
 
-        super.init()
+        super.init(url: "https://readr-api.herokuapp.com/api")
         
-        self.getFromAPI()
+        self.getBooks()
 
     }
     
-    func getFromAPI() {
-        guard let url = URL(string: self.booksEndpoint) else {
-            print("Error: cannot create URL")
-            return
-        }
-        let urlRequest = URLRequest(url: url)
-        // set up the session
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        
-        
-        // make the request
-        let task = session.dataTask(with: urlRequest) {
-            (data, response, error) in
-            // check for any errors
-            guard error == nil else {
-                print("error calling GET on /book/")
-                print(error!)
+    func getBooks() {
+        self.fetch(url: self.booksEndpoint) {error,responseData in
+            if (error) {
+                print("couldn't fetch books")
                 return
-            }
-            // make sure we got data
-            guard let responseData = data else {
-                print("Error: did not receive data")
-                return
-            }
-            // parse the result as JSON, since that's what the API provides
-            let json = JSON(data: responseData)
-            
-            for (index,subJson):(String, JSON) in json {
-                //Do something you want
-                print(index + " parsed book:")
-                print(subJson)
+            }   else {
+                // parse the result as JSON, since that's what the API provides
+                let json = JSON(data: responseData!)
+                
+                self.processBooks(books: json)
+                
+                // notify view controller that our data is new
+                self.reqProtocolDelegate.requestCompleted()
             }
         }
+    }
+    
+    func processBooks(books: JSON) {
+        for (index,subJson):(String, JSON) in books {
+            //Do something you want
+            print("parsed book (\(index)) :")
+            print(subJson)
+            self.processBook(book: subJson)
+        }
+    }
+    
+    func processBook(book: JSON) {
+        let bookName = book["name"].string ?? ""
+        let isbn = book["isbn"].string
         
-        task.resume()
+        let bookInstance = Book(name: bookName, isbn: isbn, existingNotes: nil)!
+        add(book: bookInstance)
+        
     }
     
     func count() -> Int {

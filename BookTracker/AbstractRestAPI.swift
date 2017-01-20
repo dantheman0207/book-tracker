@@ -7,15 +7,16 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 // implements get/post/put/delete but not JSON wrangling
 class API {
     var endpoint: String
-    init(url_base: String) {
-        self.endpoint = url_base;
+    init(url: String) {
+        self.endpoint = url;
     }
     
-    func get(url apiExtension: String, callback: @escaping (Bool, AnyObject?) ->()) {
+    func fetch(url apiExtension: String, callback: @escaping (Bool, Data?) ->()) {
         var endpoint = self.endpoint + apiExtension
         guard let url = URL(string: endpoint) else {
             print("Error: cannot create URL")
@@ -37,9 +38,11 @@ class API {
                 callback(true, nil)
                 return
             }
-            guard 200...299 = response.statusCode else {
+            guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
                 print("error calling GET on " + endpoint)
-                print("HTTP Response Code: " + response.statusCode)
+                if let httpResponse = response as? HTTPURLResponse {
+                    print("HTTP Response Code: " + String(httpResponse.statusCode))
+                }
                 callback(true, nil)
                 return
             }
@@ -49,33 +52,52 @@ class API {
                 callback(true, nil)
                 return
             }
-            callback(false, responseData as AnyObject);
+            callback(false, responseData);
         }
         
         task.resume()
         
     }
 }
+enum AbstractError: Error {
+    case abstractFuncCalled
+}
 
 protocol AbstractRestAPI {
     var endpoint: String {get}
 }
 
+class AbstractAPIResponse {
+    var data: AnyObject
+    var json: JSON?
+    init(response: AnyObject) {
+        self.data = response
+    }
+    func subscribe( acceptJSON: @escaping(_: JSON) -> ()) throws {
+        throw AbstractError.abstractFuncCalled
+    }
+}
 extension AbstractRestAPI {
-    get(id) {
-    return
+    func get(id: String) throws -> AbstractAPIResponse{
+        throw AbstractError.abstractFuncCalled
     }
 }
 
-class BookAPI: AbstractRestApi {
-    // MARK: Properties
-    let endpoint: String
-    
-    init(endpoint: String) {
-        self.endpoint = endpoint
+class BookAPI: API {
+    override init(url: String) {
+        super.init(url: url)
     }
     
-    func get(id) {
+    /*
+ func getAll() -> [JSON]? {
         
     }
+    
+    func get(id:String) -> JSON? {
+        let url = self.endpoint + "/" + id
+        // ext
+        //self.fetch(url)
+        
+    }
+ */
 }

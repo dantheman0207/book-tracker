@@ -15,7 +15,7 @@ class Book: NSObject {
     var photo: UIImage?
     var notes: Notes?
  
-    init?(name: String, isbn: String, existingNotes: Notes?) {
+    init?(name: String, isbn: String?, existingNotes: Notes?) {
         
         // Set props
         self.displayName = name

@@ -45,7 +45,9 @@ class NoteTableViewController: UITableViewController {
         let note = notes.getNote(index: index)
         
         // Configure the cell...
-        let endIndex = note.content.index(note.content.startIndex, offsetBy: 44)
+        let startIndex = note.content.startIndex
+        let length = note.content.characters.count < 44 ? note.content.characters.count : 44
+        let endIndex = note.content.index(startIndex, offsetBy: length)
         cell.contentLabel.text = note.content.substring(to: endIndex) + "..."
         
         cell.pageLabel.text = note.title
