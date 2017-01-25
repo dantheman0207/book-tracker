@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol requestListenerProtocol {
-    func requestCompleted()
-}
-
 class BookTableViewController: UITableViewController, requestListenerProtocol {
     
     // MARK: Properties
@@ -20,32 +16,28 @@ class BookTableViewController: UITableViewController, requestListenerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.books = Books(user: 1, reqProtocolDelegate: self)
+        self.books = Books(user: "1", reqProtocolDelegate: self)
+        self.tableView.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.tableView.refreshControl!.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
+    }
+    
+    func refresh(sender: AnyObject) {
+        self.books?.getBooks()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: Testing data
-    func loadSampleBook() {
-        let book = Book(name: "Zen and the Art of Motorcycle Maintenance", isbn: "1300000000000", existingNotes: nil)!
-        self.books!.add(book: book)
-    }
-    
-    func loadSampleNotes() -> Notes {
-        // create Notes object
-        let notes = Notes()
-        notes.createNote(title: "pg. 57-59", content: "Opening lines of note, showing the first bit...", images: nil)
-        return notes
+        // - ? destroy instances of books' notes ?
     }
 
     func requestCompleted() {
         self.tableView.reloadData()
+        self.tableView.refreshControl!.endRefreshing()
     }
     
     // MARK: - Table view data source
@@ -94,34 +86,34 @@ class BookTableViewController: UITableViewController, requestListenerProtocol {
                 let index = (selectedIndexPath as NSIndexPath).row
                 self.books!.update(book: book, index: index)
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
-            } else {
-                // add a new book
-                let newIndexPath = IndexPath(row: books!.count(), section: 0)
+            } else { // add a new book
+                //let newIndexPath = IndexPath(row: self.books!.count(), section: 0)
+                //tableView.insertRows(at: [newIndexPath], with: .bottom)
                 self.books!.add(book: book)
-                tableView.insertRows(at: [newIndexPath], with: .bottom)
+                tableView.reloadData()
             }
-        } 
+        }
     }
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            let index = (indexPath as NSIndexPath).row
+            self.books!.removeBook(index: index)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        } 
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -150,13 +142,15 @@ class BookTableViewController: UITableViewController, requestListenerProtocol {
         let add = "AddBook"
         
         if segue.identifier == add {
-            print("Adding book.")
+            let bookViewController = segue.destination as! BookViewController
+            let book = Book(name: "New Book", isbn: nil, user: self.books!.user!, id: nil)!
+            bookViewController.book = book
         } else if segue.identifier == show {
             let notesTableViewController  = segue.destination as! NoteTableViewController
             if let selectedBookCell = sender as? BookTableViewCell {
                 let indexPath = tableView.indexPath(for: selectedBookCell)!
                 let selectedBook = self.books!.getBook(index: (indexPath as NSIndexPath).row)
-                notesTableViewController.notes = selectedBook.notes
+                notesTableViewController.notes = Notes(book: selectedBook)
             }
         } else if segue.identifier == edit {
             let bookViewController = segue.destination as! BookViewController

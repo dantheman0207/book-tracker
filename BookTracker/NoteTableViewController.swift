@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NoteTableViewController: UITableViewController {
+class NoteTableViewController: UITableViewController, requestListenerProtocol{
     
     // MARK: Properties
     var notes: Notes!
@@ -16,18 +16,34 @@ class NoteTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.notes.addListener(listener: self)
+        self.notes.getNotes()
+        
+        self.tableView.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.tableView.refreshControl!.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         //navigationItem.rightBarButtonItem = editButtonItem
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func refresh(sender: AnyObject) {
+        self.notes.getNotes()
+    }
 
+    func requestCompleted() {
+        self.tableView.reloadData()
+        self.tableView.refreshControl?.endRefreshing()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,12 +61,17 @@ class NoteTableViewController: UITableViewController {
         let note = notes.getNote(index: index)
         
         // Configure the cell...
-        let startIndex = note.content.startIndex
-        let length = note.content.characters.count < 44 ? note.content.characters.count : 44
-        let endIndex = note.content.index(startIndex, offsetBy: length)
-        cell.contentLabel.text = note.content.substring(to: endIndex) + "..."
-        
-        cell.pageLabel.text = note.title
+        cell.contentLabel.text = note.title
+    
+        if let pg = note.pg {
+            if let end = note.endPg {
+                cell.pageLabel.text = pg + "-" + end
+            } else {
+                cell.pageLabel.text = pg
+            }
+        } else {
+            cell.pageLabel.text = "---"
+        }
         
         return cell
     }
@@ -63,10 +84,9 @@ class NoteTableViewController: UITableViewController {
                 notes.update(note: note, index: index)
                 tableView.reloadRows(at: [selectedIndexPath], with: .none) // Reload row
             } else {
-                // Add a new note
-                let newIndexPath = IndexPath(row: notes.count(), section: 0)
-                notes.add(note: note)
-                tableView.insertRows(at: [newIndexPath], with: .bottom)
+                // Show our new note
+                self.notes.add(note: note)
+                tableView.reloadData()
             }
         }
     }
@@ -78,17 +98,17 @@ class NoteTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            let index = (indexPath as NSIndexPath).row
+            self.notes.getNote(index: index).deleteNote()
+            self.notes.remove(noteAtIndex: index)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }   
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -116,11 +136,13 @@ class NoteTableViewController: UITableViewController {
         // Identifiers
         let add = "AddNote"
         let show = "ShowNoteDetail"
-        
+        let noteViewController = segue.destination as! NoteViewController
+
         if segue.identifier == add {
             print("Adding new note")
+            let note = Note(title: "New note", content: "Write something here!", id: nil, pg: nil, endPg: nil, UserId: self.notes.book.user, BookId: self.notes.book.id)!
+            noteViewController.note = note
         } else if segue.identifier == show {
-            let noteViewController = segue.destination as! NoteViewController
             if let selectedNoteCell = sender as? NoteTableViewCell {
                 let indexPath = tableView.indexPath(for: selectedNoteCell)!
                 let index = (indexPath as NSIndexPath).row

@@ -13,6 +13,7 @@ class BookViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     // MARK: Properties
     // NAMES:
     //  cancelButton, photoView, saveButton, bookTitle, isbn
+    var user: String?
     var book: Book?
     
     //
@@ -99,7 +100,9 @@ class BookViewController: UIViewController, UITextFieldDelegate, UINavigationCon
             let bookName = bookTitle.text!
             let nr = isbn.text
             
-            book = Book(name: bookName, isbn: nr!, existingNotes: nil)
+            self.book!.displayName = bookName
+            self.book!.isbn = nr
+            self.book!.update()
         }
         
         

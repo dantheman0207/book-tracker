@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Note.init(title : String, content : String, id : String?, pg : String?, endPg : String?) -&gt; Note?:Note.swift">
+      </ContextState>
+      <ContextState
+         contextName = "NoteViewController.textViewDidEndEditing(UITextView) -&gt; ():NoteViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "API.(post(url : String, data : [String : String?], callback : (Bool) -&gt; ()) -&gt; ()).(closure #1):AbstractRestAPI.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "data!">
+            </PersistentString>
+            <PersistentString
+               value = "httpResponse.statusCode">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Books.processBook(book : JSON) -&gt; ():Books.swift">
+      </ContextState>
+      <ContextState
+         contextName = "BookTableViewController.tableView(UITableView, commit : UITableViewCellEditingStyle, forRowAt : IndexPath) -&gt; ():BookTableViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "NoteTableViewController.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:NoteTableViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Book.(create() -&gt; ()).(closure #1):Book.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "data!">
+            </PersistentString>
+            <PersistentString
+               value = "data!.int">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NoteTableViewController.prepare(for : UIStoryboardSegue, sender : Any?) -&gt; ():NoteTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "segue.identifier">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

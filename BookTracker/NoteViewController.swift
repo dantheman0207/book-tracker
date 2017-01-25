@@ -17,6 +17,7 @@ class NoteViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     @IBOutlet weak var toPage: UITextField!
     @IBOutlet weak var insertImageButton: UIButton!
     @IBOutlet weak var noteContent: UITextView!
+    @IBOutlet weak var noteTitle: UITextField!
     
     var note: Note?
     
@@ -27,16 +28,16 @@ class NoteViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         fromPage.delegate    = self
         toPage.delegate      = self
         noteContent.delegate = self
-
-        // check if existing note to edit
-        if let note = note {
-            fromPage.text = note.title
-            noteContent.text = note.content
-        }
+        noteTitle.delegate   = self
+        
+        fromPage.text = self.note!.pg ?? "0"
+        toPage.text = self.note!.endPg ?? "0"
+        noteContent.text = self.note!.content
+        noteTitle.text = self.note!.title
+        
         // Do any additional setup after loading the view.
         validateInputs()
     }
-    
     func validateInputs() {
         // Check fromPage to be valid number
         
@@ -70,10 +71,12 @@ class NoteViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if saveButton === sender as? UIBarButtonItem {
-            let title = fromPage.text!
-            let content = noteContent.text!
+            self.note!.title    = noteTitle.text ?? ""
+            self.note!.content  = noteContent.text
+            self.note!.pg       = fromPage.text
+            self.note!.endPg    = toPage.text
             
-            note = Note(title: title, content: content)
+            self.note!.update()
         }
     }
 

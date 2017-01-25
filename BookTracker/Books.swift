@@ -14,26 +14,28 @@ class Books: API {
     var booksEndpoint: String = "/user/"
     var books =  [Book]()
     var reqProtocolDelegate: requestListenerProtocol
-    var user: Int?
+    var user: String?
     
-    init(user: Int, reqProtocolDelegate: requestListenerProtocol) {
+    init(user: String, reqProtocolDelegate: requestListenerProtocol) {
         // change so protocolDelegate is set after init ???
         self.reqProtocolDelegate = reqProtocolDelegate
         self.booksEndpoint += String(user) + "/book/"
         self.user = user
 
-        super.init(url: "https://readr-api.herokuapp.com/api")
+        // find a better way to store this global app constant
+        super.init()
         
         self.getBooks()
 
     }
     
     func getBooks() {
+        self.books = [Book]()
         self.fetch(url: self.booksEndpoint) {error,responseData in
             if (error) {
                 print("couldn't fetch books")
                 return
-            }   else {
+            } else {
                 // parse the result as JSON, since that's what the API provides
                 let json = JSON(data: responseData!)
                 
@@ -57,8 +59,10 @@ class Books: API {
     func processBook(book: JSON) {
         let bookName = book["name"].string ?? ""
         let isbn = book["isbn"].string
+        let userID = String(book["UserId"].int!)
+        let id = String(book["id"].int!)
         
-        let bookInstance = Book(name: bookName, isbn: isbn, existingNotes: nil)!
+        let bookInstance = Book(name: bookName, isbn: isbn, user: userID, id: id)!
         add(book: bookInstance)
         
     }
@@ -71,11 +75,17 @@ class Books: API {
         return books[index]
     }
     
+    func removeBook(index: Int) {
+        self.books[index].deleteBook()
+        self.books.remove(at: index)
+    }
+    
     func add(book: Book) {
         books.append(book)
     }
     
     func update(book: Book, index: Int) {
         books[index] = book
+
     }
 }

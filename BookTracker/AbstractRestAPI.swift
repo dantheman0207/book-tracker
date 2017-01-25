@@ -11,13 +11,13 @@ import SwiftyJSON
 
 // implements get/post/put/delete but not JSON wrangling
 class API {
-    var endpoint: String
-    init(url: String) {
-        self.endpoint = url;
+    var endpoint: String = "https://readr-api.herokuapp.com/api"
+    init() {
+
     }
     
     func fetch(url apiExtension: String, callback: @escaping (Bool, Data?) ->()) {
-        var endpoint = self.endpoint + apiExtension
+        let endpoint = self.endpoint + apiExtension
         guard let url = URL(string: endpoint) else {
             print("Error: cannot create URL")
             return
@@ -26,7 +26,6 @@ class API {
         // set up the session
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
-        
         
         // make the request
         let task = session.dataTask(with: urlRequest) {
@@ -58,6 +57,141 @@ class API {
         task.resume()
         
     }
+    
+    func put(url: String, update: Dictionary<String, String?>, callback: @escaping (Bool) ->()) {
+        let endpoint = self.endpoint + url
+        guard let url = URL(string: endpoint) else {
+            print("Error: cannot create URL: " + endpoint )
+            return
+        }
+        var urlRequest = URLRequest(url: url)
+        // set up the session
+        urlRequest.httpMethod = "PUT"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        do {
+            urlRequest.httpBody = try JSONSerialization.data(withJSONObject: update, options: .prettyPrinted)
+
+        } catch {
+            print("couldn't serialize update to " + endpoint)
+        }
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        
+        // make the request
+        let task = session.dataTask(with: urlRequest) {
+            (data, response, error) in
+            // check for any errors
+            guard error == nil else {
+                print("error calling PUT on " + endpoint)
+                print(error!)
+                callback(true)
+                return
+            }
+            guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
+                print("error calling PUT on " + endpoint)
+                if let httpResponse = response as? HTTPURLResponse {
+                    print("HTTP Response Code: " + String(httpResponse.statusCode))
+                }
+                callback(true)
+                return
+            }
+            callback(false);
+        }
+        
+        task.resume()
+
+    }
+    
+    func post(url: String, data: Dictionary<String, String?>, callback: @escaping (Bool, JSON?) ->()) {
+        let endpoint = self.endpoint + url
+        guard let url = URL(string: endpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        var urlRequest = URLRequest(url: url)
+        // set up the session
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        do {
+            urlRequest.httpBody = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+            
+        } catch {
+            print("couldn't serialize creation of " + endpoint)
+        }
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        
+        // make the request
+        let task = session.dataTask(with: urlRequest) {
+            (data, response, error) in
+            // check for any errors
+            guard error == nil else {
+                print("error calling POST on " + endpoint)
+                print(error!)
+                callback(true, nil)
+                return
+            }
+            guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
+                print("error calling POST on " + endpoint)
+                if let httpResponse = response as? HTTPURLResponse {
+                    print("HTTP Response Code: " + String(httpResponse.statusCode))
+                }
+                callback(true, nil)
+                return
+            }
+            
+            if let unwrappedData = data {
+                let json = JSON(data: unwrappedData)
+                print("posted return data")
+                print(json)
+                callback(false, json);
+            } else {
+                callback(true, nil)
+            }
+        }
+        
+        task.resume()
+        
+    }
+
+    func delete(url: String, callback: @escaping (Bool) ->()) {
+        let endpoint = self.endpoint + url
+        guard let url = URL(string: endpoint) else {
+            print("Error: cannot create URL: " + endpoint )
+            return
+        }
+        var urlRequest = URLRequest(url: url)
+        // set up the session
+        urlRequest.httpMethod = "DELETE"
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        // make the request
+        let task = session.dataTask(with: urlRequest) {
+            (data, response, error) in
+            // check for any errors
+            guard error == nil else {
+                print("error calling DELETE on " + endpoint)
+                print(error!)
+                callback(true)
+                return
+            }
+            guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
+                print("error calling DELETE on " + endpoint)
+                if let httpResponse = response as? HTTPURLResponse {
+                    print("HTTP Response Code: " + String(httpResponse.statusCode))
+                }
+                callback(true)
+                return
+            }
+            callback(false);
+        }
+        
+        task.resume()
+    }
+    
 }
 enum AbstractError: Error {
     case abstractFuncCalled
@@ -83,21 +217,6 @@ extension AbstractRestAPI {
     }
 }
 
-class BookAPI: API {
-    override init(url: String) {
-        super.init(url: url)
-    }
-    
-    /*
- func getAll() -> [JSON]? {
-        
-    }
-    
-    func get(id:String) -> JSON? {
-        let url = self.endpoint + "/" + id
-        // ext
-        //self.fetch(url)
-        
-    }
- */
+protocol requestListenerProtocol {
+    func requestCompleted()
 }
