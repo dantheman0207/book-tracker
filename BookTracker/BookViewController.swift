@@ -18,9 +18,9 @@ class BookViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     
     //
     @IBOutlet weak var cancelButton: UIBarButtonItem!
-    @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var bookTitle: UITextField!
+    @IBOutlet weak var lastPg: UITextField!
     @IBOutlet weak var isbn: UITextField!
     
     override func viewDidLoad() {
@@ -36,13 +36,10 @@ class BookViewController: UIViewController, UITextFieldDelegate, UINavigationCon
             if let isbn = book.isbn {
                 self.isbn.text = isbn
             }
-            if let pic = book.photo {
-                self.photoView.image = pic
+            if let lastPg = book.lastPg {
+                self.lastPg.text  = String(lastPg)
             }
         }
-        
-        // Save button only enabled when book name valid
-        checkValidName()
     }
     
     // MARK: Helper functions
@@ -99,9 +96,14 @@ class BookViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         if saveButton == sender as? UIBarButtonItem {
             let bookName = bookTitle.text!
             let nr = isbn.text
+            var pg: Int? = nil
+            if let pgString = lastPg.text {
+                pg = Int(pgString)
+            }
             
             self.book!.displayName = bookName
             self.book!.isbn = nr
+            self.book!.lastPg = pg
             self.book!.update()
         }
         

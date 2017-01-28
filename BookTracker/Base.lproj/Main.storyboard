@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qYL-Ts-ZYB" id="3Ai-xY-DAX">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="57-59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mb-mv-lMF">
@@ -208,7 +208,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" preservesSuperviewLayoutMargins="YES" tableViewCell="nwP-Jv-Uic" id="MXI-CW-1ue">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="87"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" placeholderIntrinsicWidth="120" placeholderIntrinsicHeight="120" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="KW4-zw-4FN">
@@ -287,7 +287,7 @@
             </objects>
             <point key="canvasLocation" x="-76" y="395"/>
         </scene>
-        <!--Add Book-->
+        <!--Book View Controller-->
         <scene sceneID="bLp-1U-lVr">
             <objects>
                 <viewController id="MxE-QN-icC" customClass="BookViewController" customModule="BookTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -299,45 +299,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="gRP-Ng-caU">
-                                <rect key="frame" x="16" y="72" width="339" height="427"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HJp-0j-IxQ" userLabel="Book Info">
+                                <rect key="frame" x="16" y="88" width="327" height="60"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title: Zen and the Art of Motorcycle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jaA-uv-fTW">
-                                        <rect key="frame" x="0.0" y="0.0" width="339" height="157"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ISBN 13: 978-0060589462" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z2p-zz-qK8">
-                                        <rect key="frame" x="0.0" y="157" width="197.5" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rJ7-fe-44J">
-                                        <rect key="frame" x="0.0" y="187" width="339" height="240"/>
-                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="100-jO-TzQ" userLabel="Titles">
+                                        <rect key="frame" x="0.0" y="0.0" width="129" height="60"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text=" ISBN: " borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rcg-WG-jMw">
+                                                <rect key="frame" x="0.0" y="0.0" width="129" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text=" Last read page: " borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gay-2Y-Mqj">
+                                                <rect key="frame" x="0.0" y="30" width="129" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="gay-2Y-Mqj" firstAttribute="width" secondItem="Rcg-WG-jMw" secondAttribute="width" id="OgP-jl-mXp"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="gRP-Ng-caU" userLabel="Input">
+                                        <rect key="frame" x="129" y="0.0" width="197.5" height="60"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ISBN 13: 978-0060589462" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z2p-zz-qK8">
+                                                <rect key="frame" x="0.0" y="0.0" width="197.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last read page: 57" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ti7-2v-8dd">
+                                                <rect key="frame" x="0.0" y="30" width="197.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ti7-2v-8dd" firstAttribute="width" secondItem="z2p-zz-qK8" secondAttribute="width" id="2WP-2S-PZd"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="jaA-uv-fTW" firstAttribute="trailing" secondItem="rJ7-fe-44J" secondAttribute="trailing" id="Ng6-Jw-YsH"/>
-                                    <constraint firstAttribute="trailing" secondItem="rJ7-fe-44J" secondAttribute="trailing" id="t1S-ZP-J9C"/>
+                                    <constraint firstItem="100-jO-TzQ" firstAttribute="leading" secondItem="HJp-0j-IxQ" secondAttribute="leading" id="laY-m8-h8l"/>
+                                    <constraint firstItem="gRP-Ng-caU" firstAttribute="height" secondItem="100-jO-TzQ" secondAttribute="height" id="sXV-g6-Ima"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gRP-Ng-caU" firstAttribute="top" secondItem="wte-WB-M25" secondAttribute="bottom" constant="8" symbolic="YES" id="11q-DM-95P"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gRP-Ng-caU" secondAttribute="trailing" constant="4" id="V20-iw-EUe"/>
-                            <constraint firstItem="HdG-yg-x9q" firstAttribute="top" secondItem="gRP-Ng-caU" secondAttribute="bottom" constant="168" id="jJZ-Wc-aVR"/>
-                            <constraint firstItem="gRP-Ng-caU" firstAttribute="leading" secondItem="CkF-QT-dyD" secondAttribute="leadingMargin" id="yrB-Pk-zor"/>
+                            <constraint firstItem="HJp-0j-IxQ" firstAttribute="centerX" secondItem="CkF-QT-dyD" secondAttribute="centerX" id="JgV-ri-LGn"/>
+                            <constraint firstItem="HJp-0j-IxQ" firstAttribute="top" secondItem="wte-WB-M25" secondAttribute="bottom" constant="24" id="Yh4-41-IzJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Book" id="nB8-Rm-iX0">
+                    <navigationItem key="navigationItem" id="nB8-Rm-iX0">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="R9f-Fs-UUO">
                             <connections>
                                 <action selector="cancel:" destination="MxE-QN-icC" id="YXj-R7-69L"/>
                             </connections>
                         </barButtonItem>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Book" textAlignment="center" minimumFontSize="17" id="3Y5-w3-wKk">
+                            <rect key="frame" x="98" y="7" width="180" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="8kY-k6-kcv">
                             <connections>
                                 <segue destination="CEi-k0-Fhi" kind="unwind" unwindAction="unwindToBookList:" id="2hz-ic-i7B"/>
@@ -345,10 +376,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bookTitle" destination="jaA-uv-fTW" id="6fr-f1-KXl"/>
+                        <outlet property="bookTitle" destination="3Y5-w3-wKk" id="18o-Vi-cYr"/>
                         <outlet property="cancelButton" destination="R9f-Fs-UUO" id="umN-Te-kYu"/>
                         <outlet property="isbn" destination="z2p-zz-qK8" id="nOb-tx-PSr"/>
-                        <outlet property="photoView" destination="rJ7-fe-44J" id="Edy-bG-NNI"/>
+                        <outlet property="lastPg" destination="ti7-2v-8dd" id="jiu-j0-Is2"/>
                         <outlet property="saveButton" destination="8kY-k6-kcv" id="I1j-fd-YyA"/>
                     </connections>
                 </viewController>

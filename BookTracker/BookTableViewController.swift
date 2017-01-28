@@ -72,9 +72,7 @@ class BookTableViewController: UITableViewController, requestListenerProtocol {
         
         // Configure the cell...
         cell.bookTitle.text = book.displayName
-        if let pic = book.photo {
-            cell.photoView.image = pic
-        }
+        cell.lastPgNr.text  = String(book.lastPg ?? 0)
         
         return cell
     }
@@ -143,7 +141,7 @@ class BookTableViewController: UITableViewController, requestListenerProtocol {
         
         if segue.identifier == add {
             let bookViewController = segue.destination as! BookViewController
-            let book = Book(name: "New Book", isbn: nil, user: self.books!.user!, id: nil)!
+            let book = Book(name: "New Book", isbn: nil, user: self.books!.user!, id: nil, lastPg: nil)!
             bookViewController.book = book
         } else if segue.identifier == show {
             let notesTableViewController  = segue.destination as! NoteTableViewController

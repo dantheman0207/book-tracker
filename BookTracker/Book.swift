@@ -12,15 +12,17 @@ class Book: API {
     // MARK: Properties
     public var displayName: String
     public var isbn: String?
-    public var photo: UIImage?
     public var user: String
     public var id: String
- 
-    init?(name: String, isbn: String?, user: String, id: String?) {
+    public var lastPg: Int?
+    
+    init?(name: String, isbn: String?, user: String, id: String?, lastPg: Int?) {
         
         // Set props
         self.user = user
         self.displayName = name
+        self.isbn = isbn
+        self.lastPg = lastPg
         self.id = id ?? "NOT CREATED"
 
         super.init()
@@ -31,11 +33,8 @@ class Book: API {
     }
     
     func create() {
-        var data = ["name": self.displayName]
-        if let isbn = self.isbn {
-            data["isbn"] = isbn
-        }
         let endpoint = "/user/" + self.user + "/book/"
+        let data = self.data()
         self.post(url: endpoint, data: data) { error, data in
             if (error) {
                 print("error creating book at :" + endpoint)
@@ -47,13 +46,10 @@ class Book: API {
     }
     
     func update() {
-        var data = ["name": self.displayName]
-        if let isbn = self.isbn {
-            data["isbn"] = isbn
-        }
         if self.id != "NOT CREATED" {
             let endpoint = "/user/" + self.user + "/book/" + self.id
-            self.put(url: endpoint, update: data) {error in
+            let update = self.data()
+            self.put(url: endpoint, update: update) {error in
                 if (error) {
                     print("error updating book at " + endpoint)
                 }
@@ -68,6 +64,19 @@ class Book: API {
                 print("error deleting book at " + endpoint)
             }
         }
+    }
+    
+    func data() -> Dictionary<String, String?> {
+        var data = ["name": self.displayName]
+        if let isbn = self.isbn {
+            data["isbn"] = isbn
+        }
+        if let lastPg = self.lastPg {
+            data["lastPg"] = String(lastPg)
+        }
+        
+        return data
+
     }
     
     func valid(isbn: String) -> Bool {

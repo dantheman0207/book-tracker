@@ -61,8 +61,9 @@ class Books: API {
         let isbn = book["isbn"].string
         let userID = String(book["UserId"].int!)
         let id = String(book["id"].int!)
+        let lastPg = book["lastPg"].int
         
-        let bookInstance = Book(name: bookName, isbn: isbn, user: userID, id: id)!
+        let bookInstance = Book(name: bookName, isbn: isbn, user: userID, id: id, lastPg: lastPg)!
         add(book: bookInstance)
         
     }
