@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D30a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wlT-Jo-mbW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wlT-Jo-mbW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -212,35 +212,38 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" placeholderIntrinsicWidth="120" placeholderIntrinsicHeight="120" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="KW4-zw-4FN">
-                                            <rect key="frame" x="15" y="1" width="120" height="87"/>
+                                            <rect key="frame" x="8" y="8.5" width="85" height="85"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="85" id="Afd-15-PzL"/>
+                                                <constraint firstAttribute="height" constant="85" id="LAz-Wi-LXN"/>
+                                            </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="78" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fcD-gV-lIN">
-                                            <rect key="frame" x="140" y="5.5" width="77" height="78"/>
+                                            <rect key="frame" x="109" y="8.5" width="225" height="78"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idw-Fj-yjX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="77" height="61"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="225" height="61"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="57" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKP-8X-eqT">
-                                                    <rect key="frame" x="0.0" y="61" width="77" height="17"/>
+                                                    <rect key="frame" x="0.0" y="61" width="225" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="77" id="gFb-BR-9oj"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="KW4-zw-4FN" firstAttribute="centerY" secondItem="MXI-CW-1ue" secondAttribute="centerY" id="0EB-rR-Sqm"/>
-                                        <constraint firstItem="KW4-zw-4FN" firstAttribute="leading" secondItem="MXI-CW-1ue" secondAttribute="leadingMargin" id="QIO-FA-jgF"/>
-                                        <constraint firstItem="KW4-zw-4FN" firstAttribute="centerY" secondItem="fcD-gV-lIN" secondAttribute="centerY" id="TmC-B8-mJt"/>
-                                        <constraint firstItem="fcD-gV-lIN" firstAttribute="leading" secondItem="KW4-zw-4FN" secondAttribute="trailing" constant="5" id="YiT-j8-dwe"/>
-                                        <constraint firstItem="KW4-zw-4FN" firstAttribute="height" secondItem="MXI-CW-1ue" secondAttribute="height" id="cCl-8D-ZSY"/>
+                                        <constraint firstItem="KW4-zw-4FN" firstAttribute="leading" secondItem="MXI-CW-1ue" secondAttribute="leading" constant="8" id="Cfl-So-wIs"/>
+                                        <constraint firstAttribute="bottom" secondItem="KW4-zw-4FN" secondAttribute="bottom" constant="8" id="S6d-jc-KsY"/>
+                                        <constraint firstAttribute="bottom" secondItem="fcD-gV-lIN" secondAttribute="bottom" constant="8" id="TOh-I8-nyj"/>
+                                        <constraint firstItem="fcD-gV-lIN" firstAttribute="leading" secondItem="KW4-zw-4FN" secondAttribute="trailing" constant="16" id="g66-Oe-Tt3"/>
+                                        <constraint firstItem="fcD-gV-lIN" firstAttribute="top" secondItem="MXI-CW-1ue" secondAttribute="top" constant="8" id="on5-Hr-QaO"/>
+                                        <constraint firstAttribute="trailing" secondItem="fcD-gV-lIN" secondAttribute="trailing" constant="8" id="qCl-M3-uCr"/>
+                                        <constraint firstItem="KW4-zw-4FN" firstAttribute="top" secondItem="MXI-CW-1ue" secondAttribute="top" constant="8" id="y6L-OG-ADf"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
