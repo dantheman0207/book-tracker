@@ -15,7 +15,6 @@ class NoteViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var fromPage: UITextField!
     @IBOutlet weak var toPage: UITextField!
-    @IBOutlet weak var insertImageButton: UIButton!
     @IBOutlet weak var noteContent: UITextView!
     @IBOutlet weak var noteTitle: UITextField!
     
@@ -50,11 +49,6 @@ class NoteViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MARK: Add Image
-    @IBAction func insertImage(_ sender: UIButton) {
-    }
-
     
     // MARK: - Navigation
      @IBAction func cancel(_ sender: UIBarButtonItem) {
