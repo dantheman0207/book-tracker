@@ -1,7 +1,7 @@
 # Book Tracker
 Take notes on the books you're reading.
 
-This app is written using Swift 3.0, and itt relies on [this RESTful api](https://github.com/dantheman0207/books-api).
+This app is written using Swift 3.0, and it relies on [this REST api](https://github.com/dantheman0207/books-api).
 
 ## Walkthrough
 
