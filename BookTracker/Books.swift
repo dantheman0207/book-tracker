@@ -34,6 +34,8 @@ class Books: API {
         self.fetch(url: self.booksEndpoint) {error,responseData in
             if (error) {
                 print("couldn't fetch books")
+                // call completionHandler cause I guess we're done here
+                self.reqProtocolDelegate.requestCompleted()
                 return
             } else {
                 // parse the result as JSON, since that's what the API provides
